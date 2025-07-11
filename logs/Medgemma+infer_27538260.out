@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/medgemma_benchmark/src/medgemma_4b_test.py", line 3, in <module>
+    import outlines
+ModuleNotFoundError: No module named 'outlines'

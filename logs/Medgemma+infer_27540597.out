@@ -1,0 +1,2732 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:22<00:22, 22.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 20.81s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:42<00:00, 21.05s/it]
+Model device: cuda:0
+/usr/local/lib/python3.10/dist-packages/torch/_inductor/compile_fx.py:194: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=1)
+```json
+{
+  "reasoning": "The document describes a patient's visit for a consultation to assess muscle spasms, cervical radiculopathy, cervical disc displacement, lumbar radiculopathy, and disc displacement, lumbar. The patient denies taking medication. The document also mentions allergies to Codeine. The patient's history includes a motor vehicle collision (MVC) and physical therapy. The current medications are none. The document also mentions MRI findings.",
+  "condition_detection_form": [
+    {
+      "resource_type": "Condition",
+      "resource_evidence": "Muscle spasm - M62.838",
+      "negation": false,
+      "diagnosis_name": "Muscle spasm",
+      "priority_id": 1,
+      "coding": [
+        {
+          "code": "M62.838",
+          "display": "Muscle spasm",
+          "system": "ICD10"
+        }
+      ]
+    },
+    {
+      "resource_type": "Condition",
+      "resource_evidence": "Cervical radiculopathy - M54.12",
+      "negation": false,
+      "diagnosis_name": "Cervical radiculopathy",
+      "priority_id": 2,
+      "coding": [
+        {
+          "code": "M54.12",
+          "display": "Cervical radiculopathy",
+          "system": "ICD10"
+        }
+      ]
+    },
+    {
+      "resource_type": "Condition",
+      "resource_evidence": "Cervical disc displacement - M50.20",
+      "negation": false,
+      "diagnosis_name": "Cervical disc displacement",
+      "priority_id": 3,
+      "coding": [
+        {
+          "code": "M50.20",
+          "display": "Cervical disc displacement",
+          "system": "ICD10"
+        }
+      ]
+    },
+    {
+      "resource_type": "Condition",
+      "resource_evidence": "Lumbar radiculopathy - M54.16",
+      "negation": false,
+      "diagnosis_name": "Lumbar radiculopathy",
+      "priority_id": 4,
+      "coding": [
+        {
+          "code": "M54.16",
+          "display": "Lumbar radiculopathy",
+          "system": "ICD10"
+        }
+      ]
+    },
+    {
+      "resource_type": "Condition",
+      "resource_evidence": "Disc displacement, lumbar - M51.26",
+      "negation": false,
+      "diagnosis_name": "Disc displacement, lumbar",
+      "priority_id": 5,
+      "coding": [
+        {
+          "code": "M51.26",
+          "display": "Disc displacement, lumbar",
+          "system": "ICD10"
+        }
+      ]
+    }
+  ],
+  "medication_detection_form": [
+    {
+      "resource_type": "MedicationStatement",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "dosage": null,
+      "medication": "medication for pain",
+      "medication_code": null,
+      "frequency": null,
+      "duration": null,
+      "strength": null,
+      "route": null
+    }
+  ],
+  "allergy_detection_form": [
+    {
+      "resource_type": "AllergyIntolerance",
+      "resource_evidence": "Codeine",
+      "negation": false,
+      "allergy_name": "Codeine",
+      "coding": [
+        {
+          "code": "Codeine",
+          "display": "Codeine",
+          "system": "SNOMEDCT"
+        }
+      ]
+    }
+  ],
+  "observation_detection_form": [
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "PARASPINAL MUSCLE SPASM: present bilaterally",
+      "negation": false,
+      "condition_name": "Muscle spasm",
+      "coding": [
+        {
+          "code": "M62.838",
+          "display": "Muscle spasm",
+          "system": "ICD10"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display": "C6/C7 disc herniation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Disc displacement, lumbar",
+      "negation": false,
+      "condition_name": "Disc displacement, lumbar",
+      "coding": [
+        {
+          "code": "Disc displacement, lumbar",
+          "display": "Disc displacement, lumbar",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Notes: I recommend lumbar SCP injection. (2nd procedure)",
+      "negation": false,
+      "condition_name": "Lumbar SCP injection",
+      "coding": [
+        {
+          "code": "Lumbar SCP injection",
+          "display": "Lumbar SCP injection",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "L5/S1 disc dehydration and desiccation, disc herniation (3.5mm)",
+      "negation": false,
+      "condition_name": "L5/S1 disc dehydration and desiccation",
+      "coding": [
+        {
+          "code": "L5/S1 disc dehydration and desiccation",
+          "display": "L5/S1 disc dehydration and desiccation",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "The patient is here today to establish care.",
+      "negation": false,
+      "condition_name": "Establish care",
+      "coding": [
+        {
+          "code": "Establish care",
+          "display": "Establish care",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient suffered from MVC on 5/10/2024 and developed symptoms.",
+      "negation": false,
+      "condition_name": "MVC on 5/10/2024",
+      "coding": [
+        {
+          "code": "MVC on 5/10/2024",
+          "display": "MVC on 5/10/2024",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of severe neck, low back, and right shoulder pain with 10/10 severity, and mild left shoulder pain with 3/10 severity.",
+      "negation": false,
+      "condition_name": "Severe neck, low back, and right shoulder pain",
+      "coding": [
+        {
+          "code": "Severe neck, low back, and right shoulder pain",
+          "display": "Severe neck, low back, and right shoulder pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Low back pain is described as stabbing and aching, while the right shoulder has burning sensation.",
+      "negation": false,
+      "condition_name": "Low back pain",
+      "coding": [
+        {
+          "code": "Low back pain",
+          "display": "Low back pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient complains of weakness in the whole back and bilateral shoulders, and numbness in the right shoulder.",
+      "negation": false,
+      "condition_name": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+      "coding": [
+        {
+          "code": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "display": "Weakness in the whole back and bilateral shoulders, and numbness in the right shoulder",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "DEFINING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient reports limitation with daily activities, such as folding clothes.",
+      "negation": false,
+      "condition_name": "Limitation with daily activities",
+      "coding": [
+        {
+          "code": "Limitation with daily activities",
+          "display": "Limitation with daily activities",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient also has difficulties with work and sleep due to pain.",
+      "negation": false,
+      "condition_name": "Difficulties with work and sleep due to pain",
+      "coding": [
+        {
+          "code": "Difficulties with work and sleep due to pain",
+          "display": "Difficulties with work and sleep due to pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient had 24 sessions of physical therapy which alleviated symptoms.",
+      "negation": false,
+      "condition_name": "Physical therapy",
+      "coding": [
+        {
+          "code": "Physical therapy",
+          "display": "Physical therapy",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient denies taking medication for pain.",
+      "negation": true,
+      "condition_name": "Medication for pain",
+      "coding": [
+        {
+          "code": "medication for pain",
+          "display": "medication for pain",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Patient already had injections twice which helped relieve the pain.",
+      "negation": false,
+      "condition_name": "Injections",
+      "coding": [
+        {
+          "code": "Injections",
+          "display": "Injections",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CORROBORATING"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "Cervical Spine MRI without contrast",
+      "negation": false,
+      "condition_name": "Cervical Spine MRI without contrast",
+      "coding": [
+        {
+          "code": "Cervical Spine MRI without contrast",
+          "display": "Cervical Spine MRI without contrast",
+          "system": "SNOMEDCT"
+        }
+      ],
+      "parent_condition": 1,
+      "relevance_category": "CONTEXTUAL"
+    },
+    {
+      "resource_type": "Observation",
+      "resource_evidence": "C6/C7 disc herniation (2.5-2.8mm)",
+      "negation": false,
+      "condition_name": "C6/C7 disc herniation",
+      "coding": [
+        {
+          "code": "C6/C7 disc herniation",
+          "display
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process

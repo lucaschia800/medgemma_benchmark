@@ -13,7 +13,9 @@ login(token)
 processor = AutoProcessor.from_pretrained("google/medgemma-4b-it")
 model = AutoModelForImageTextToText.from_pretrained("google/medgemma-4b-it", device_map="auto")
 
-print(f"Model device: {next(model.parameters()).device}")
+print("Device map:")
+for name, param in model.named_parameters():
+    print(f"{name}: {param.device}")
 
 text = """
 
@@ -847,10 +849,31 @@ with torch.no_grad():
 
 response = processor.decode(outputs, clean_up_tokenization_spaces=True)
 
+print("Raw response:")
 print(response)
 
-with open('response.json', 'w') as f:
-    json.dump(response, f)
+# Try to parse the response as JSON
+try:
+    parsed_response = json.loads(response)
+    print("\nSuccessfully parsed JSON!")
+    
+    # Save the parsed JSON with proper formatting
+    with open('response.json', 'w') as f:
+        json.dump(parsed_response, f, indent=2)
+    
+    print("Saved formatted JSON to response.json")
+    
+except json.JSONDecodeError as e:
+    print(f"\nFailed to parse response as JSON: {e}")
+    print("Saving raw response as text...")
+    
+    # Save raw response as text if JSON parsing fails
+    with open('response.txt', 'w') as f:
+        f.write(response)
+    
+    # Also save the raw response wrapped in JSON for debugging
+    with open('response.json', 'w') as f:
+        json.dump({"raw_response": response, "error": str(e)}, f, indent=2)
 
 
 

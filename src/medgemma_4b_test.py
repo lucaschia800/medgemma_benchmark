@@ -13,6 +13,7 @@ login(token)
 processor = AutoProcessor.from_pretrained("google/medgemma-4b-it")
 model = AutoModelForImageTextToText.from_pretrained("google/medgemma-4b-it", device_map="auto")
 
+print(f"Model device: {next(model.parameters()).device}")
 
 text = """
 
@@ -824,6 +825,7 @@ conversation = [
         
     }
 ]
+input_device = model.device
 
 inputs = processor.apply_chat_template(
     conversation,
@@ -834,9 +836,16 @@ inputs = processor.apply_chat_template(
     
 )
 
-outputs = model.generate(**inputs)
+inputs = {k: v.to(input_device) for k, v in inputs.items()}
 
-response = processor.decode(outputs[0], clean_up_tokenization_spaces=True)
+input_length = inputs['input_ids'].shape[1]
+
+
+with torch.no_grad():
+    outputs = model.generate(**inputs, max_new_tokens = 25000)
+    outputs = outputs[0][input_length:]
+
+response = processor.decode(outputs, clean_up_tokenization_spaces=True)
 
 print(response)
 

@@ -1,6 +1,5 @@
 import transformers
 import torch
-import outlines
 import json
 from pydantic import BaseModel, Field
 from transformers import AutoProcessor, AutoModelForImageTextToText
